@@ -6,7 +6,7 @@
     margin: 0;
 }
 .coverPic {
-    background-image: url("../../static/home/luffy_wallpaper1.jpg");
+    background-image: url("../../staticfiles/home/luffy_wallpaper1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,7 +61,7 @@
 }
 
 .midCoverPic{
-    background-image: url("../../static/home/luffy_wallpaper3.jpg");
+    background-image: url("../../staticfiles/home/luffy_wallpaper3.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
