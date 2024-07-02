@@ -81,8 +81,11 @@ DATABASES = {
     }
 }
 
-# for credential check
+# Production settings for Vercel
+if not DEBUG:
+    DATABASES['default']['NAME'] = '/tmp/db.sqlite3'
 
+# for credential check
 AUTHENTICATION_BACKENDS = [
     'TokiyoApp.auth_backends.CustomAuthBackend',
     'django.contrib.auth.backends.ModelBackend',  # Include the default backend
