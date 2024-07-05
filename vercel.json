@@ -1,15 +1,11 @@
 {
   "builds": [
     {
-      "src": "myapp/**",
+      "src": "Tokiyo/wsgi.py",
       "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "60mb",
-        "runtime": "python3.11"
-      }
+      "config": { "maxLambdaSize": "60mb", "runtime": "python3.11" }
     }
   ],
-  "functions": {},
   "routes": [
     {
       "src": "/static/(.*)",
@@ -17,11 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "myapp/wsgi.py"
+      "dest": "Tokiyo/wsgi.py"
     }
-  ],
-  "env": {},
-  "scripts": {
-    "postinstall": "python manage.py initialize_db"
-  }
+  ]
 }
