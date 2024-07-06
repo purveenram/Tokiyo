@@ -1,3 +1,5 @@
+# settings.py
+
 import os
 from pathlib import Path
 
@@ -65,7 +67,7 @@ WSGI_APPLICATION = 'Tokiyo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Keep the development database location
     }
 }
 
@@ -73,7 +75,7 @@ DATABASES = {
 if not DEBUG:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join('/tmp', 'db.sqlite3'),
+        'NAME': '/tmp/db.sqlite3',  # Use /tmp directory for production database
     }
 
 # for credential check
@@ -94,7 +96,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Production settings for Vercel
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -112,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
