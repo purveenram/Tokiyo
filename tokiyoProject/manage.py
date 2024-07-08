@@ -3,10 +3,18 @@
 import os
 import sys
 
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Tokiyo.settings')
+
+    # Initialize the database with correct permissions
+    if not os.getenv('DEBUG', 'True') == 'True':  # Check if in production mode
+        try:
+            from init_db import init_db
+            init_db()
+        except ImportError as exc:
+            print("Failed to import init_db: ", exc)
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -16,7 +24,6 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
-
 
 if __name__ == '__main__':
     main()
