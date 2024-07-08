@@ -71,13 +71,6 @@ DATABASES = {
     }
 }
 
-# Production settings for Vercel
-if not DEBUG:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join('/tmp', 'db.sqlite3'),
-    }
-
 # for credential check
 AUTHENTICATION_BACKENDS = [
     'TokiyoApp.auth_backends.CustomAuthBackend',
