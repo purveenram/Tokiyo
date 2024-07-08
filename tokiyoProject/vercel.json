@@ -15,5 +15,13 @@
       "src": "/(.*)",
       "dest": "Tokiyo/wsgi.py"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "Tokiyo.settings"
+    },
+    "commands": {
+      "predeploy": "python manage.py migrate"
+    }
+  }
 }
