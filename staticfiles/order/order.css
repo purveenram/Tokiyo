@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;700&display=swap');
 
-
 body {
     font-family: 'Comic Neue', cursive;
     background-image: url('Wallimg2.png');
@@ -11,120 +10,109 @@ body {
     color: aliceblue;
     margin: 0;
 }
-.background{
-    background-color: rgb(3, 16, 19, .6);
+
+.background {
+    background-color: rgba(3, 16, 19, 0.6);
     width: 100%;
     height: 100%;
 }
 
 a {
     text-decoration: none;
-    color: rgb(3, 16, 19, 1);
+    color: rgba(3, 16, 19, 1);
 }
-.containerOrder{
+
+.containerOrder {
     margin-top: 5%;
 }
 
 .order-header {
     border-radius: 20px;
-    margin: 20px auto auto auto;
+    margin: 20px auto;
     cursor: pointer;
-    height: 140px;
+    height: auto;
     width: 80%;
-    background-color: rgb(3, 16, 19, .8);
+    background-color: rgba(3, 16, 19, 0.8);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .tokiyoOrderId {
     background-color: rgba(3, 16, 19, 1);
     color: red;
-    padding: 1% 0% 1% 3%;
-    width: 50%;
-    float: left;
-    border-radius: 20px 0px 20px 0px;
+    padding: 1%;
+    width: fit-content;
+    border-radius: 20px 0 20px 0;
+    margin-bottom: 10px;
 }
-.cancel{
+
+.cancel {
     color: red;
     margin-right: 3%;
 }
 
 .status {
-    width: 20%;
-    float: right;
     margin-top: 1%;
-    margin-right: 1%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
 }
 
-.deliverAddressInOrder {
+.deliverAddressInOrder, .totalAmountPaidInOrder, .orderPlacedTimeDate {
     padding-left: 1%;
     padding-top: 1%;
-    overflow: hidden;
     width: 100%;
-}
-
-.totalAmountPaidInOrder {
-    padding-left: 1%;
-    padding-top: 1%;
-}
-
-.orderPlacedTimeDate {
-    padding-left: 1%;
-    padding-top: 1%;
 }
 
 .deliveryday {
     font-size: small;
-    color: rgb(240, 248, 255, .8);
+    color: rgba(240, 248, 255, 0.8);
 }
-.productNameODP{
-    padding-left: 1%;
-    padding-top: 1%;
-}
-.productAmtQODP{
+
+.productNameODP, .productAmtQODP {
     padding-left: 1%;
     padding-top: 1%;
     padding-bottom: 1%;
 }
-.divider{
+
+.divider {
     margin: auto;
     width: 90%;
     height: 2px;
-    background-color: rgb(3, 16, 19, .8);
+    background-color: rgba(3, 16, 19, 0.8);
+}
+
+.orderstatus1, .orderstatus2 {
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
 }
 
 .orderstatus1 {
-    float: right;
-    height: 20px;
-    width: 20px;
-    margin-right: 2%;
-    margin-top: 1%;
-    border-radius: 10px;
     background-color: aliceblue;
 }
 
 .orderstatus2 {
-    float: right;
-    height: 20px;
-    width: 20px;
-    margin-right: 2%;
-    margin-top: 1%;
-    border-radius: 10px;
     background-color: red;
 }
 
 .order-details {
     margin: auto;
     display: none;
-    background-color: rgb(240, 248, 255, .8);
-    border-radius: 0px 0px 10px 10px;
-    color: rgb(3, 16, 19, 1);
+    background-color: rgba(240, 248, 255, 0.8);
+    border-radius: 0 0 10px 10px;
+    color: rgba(3, 16, 19, 1);
     width: 75%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-/* --------------------------- */
 .containerOrderNoProduct {
     height: 60vh;
     text-align: center;
-    overflow: hidden;
 }
 
 .noProducts {
@@ -137,27 +125,74 @@ a {
 .viewProduct {
     font-weight: bold;
     font-size: larger;
-    text-decoration: none;
-    background-color: rgb(3, 16, 19, 1);
+    background-color: rgba(3, 16, 19, 1);
     color: aliceblue;
     padding: 2%;
     border-radius: 15px;
-    border: 0;
-    margin-top: 10px;
-    transition-delay: .1s;
-    transition-duration: .3s;
-    transition-timing-function: ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .viewProduct:hover {
     transform: translateY(-10px);
-    font-weight: bold;
-    font-size: larger;
-    border: 0;
-    text-decoration: none;
     color: red;
 }
 
 .footer {
     margin-top: 6%;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .order-header, .order-details {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .order-header, .order-details {
+        width: 95%;
+    }
+
+    .deliverAddressInOrder, .totalAmountPaidInOrder, .orderPlacedTimeDate {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .order-header, .order-details {
+        width: 100%;
+    }
+
+    .tokiyoOrderId {
+        font-size: 16px;
+    }
+
+    .deliverAddressInOrder, .totalAmountPaidInOrder, .orderPlacedTimeDate {
+        font-size: 12px;
+    }
+
+    .status {
+        justify-content: space-between;
+        gap: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .order-header, .order-details {
+        width: 100%;
+    }
+
+    .tokiyoOrderId {
+        font-size: 14px;
+    }
+
+    .deliverAddressInOrder, .totalAmountPaidInOrder, .orderPlacedTimeDate {
+        font-size: 10px;
+    }
+
+    .status {
+        justify-content: space-between;
+        gap: 0;
+    }
 }

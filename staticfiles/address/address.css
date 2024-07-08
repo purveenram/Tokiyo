@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap');
-
 * {
   box-sizing: border-box;
-  font-family: 'Rubik', sans-serif;
 }
 
-body{
+body {
   margin: 0;
   font-family: 'Comic Neue', cursive;
   background-image: url('background1.jpg');
@@ -15,49 +13,51 @@ body{
   background-position: bottom;
 }
 
-.content{
-  width: 35%;
-  background-color: rgb(3, 16, 19, .8);
-  padding-top:20px;
-  margin: 3% auto auto auto;
-  padding-bottom:3%;
-  border-radius: 20px 20px 20px 20px;
-}
-.leftContentDisplay{
-  float: left;
-  width: 50%;
-}
-.rightDetaisDisplay{
-  float: right;
-  width: 50%;
+.content {
+  width: 80%;
+  max-width: 600px; /* Example max-width for large screens */
+  background-color: rgba(3, 16, 19, 0.8);
+  padding: 20px;
+  margin: 3% auto;
+  border-radius: 20px;
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
 
-.displayTags{
+
+.containerAddress {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: space-between; /* Spacing between left and right sections */
+}
+
+.containerAddress .leftContentDisplay,
+.containerAddress .rightDetaisDisplay {
+  flex: 1; /* Take equal space */
+  padding: 10px;
+  color: aliceblue;
+}
+
+.displayTags {
   font-weight: bold;
   margin-top: 20px;
-  margin-left: 28%;
-  color:aliceblue;
+  margin-bottom: 30px; /* Increased bottom margin for more space */
 }
 
-.inputTags{
+.inputTags {
   margin-top: 10px;
-  margin-right: 0;
-  padding: 5px;
-  width: 200px;
-  height: 30px;
-  border: 0px;
-  border-radius: 50px;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px; /* Example max-width for large screens */
+  height: 40px;
+  border: 0;
+  border-radius: 20px;
   text-align: center;
 }
-.inputTags:focus{
-  height: 30px;
-  outline:none;
-}
 
-
-.btn{
-  padding-left: 50%;
-  transform: translatex(-75px);
+.btn {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px; /* Added margin-bottom to create space below button */
 }
 
 .register {
@@ -67,19 +67,31 @@ body{
   text-decoration: none;
   font-size: medium;
   border: 0;
-  background-color: rgb(3, 16, 19, 1);
-  color:aliceblue;
+  background-color: rgba(3, 16, 19, 1);
+  color: aliceblue;
   border-radius: 19px;
-  margin-top: 20px;
-  transition-delay: .1s;
-  transition-duration: .3s;
-  transition-timing-function: ease;
+  transition: transform 0.3s ease;
 }
 
-.register:hover{
+.register:hover {
   transform: translateY(-3px);
-  text-decoration: none;
-  font-size: medium;
-  border: 0;
   color: red;
+}
+
+/* Media Query for Tablets and Mobile Phones */
+@media (max-width: 768px) {
+  .content {
+    padding: 15px;
+  }
+
+  .containerAddress .leftContentDisplay,
+  .containerAddress .rightDetaisDisplay {
+    width: 100%; /* Full width on smaller screens */
+    padding: 0; /* Reset padding for full width */
+    margin-bottom: 10px; /* Space between sections */
+  }
+
+  .inputTags {
+    padding: 8px 10px; /* Adjust padding for smaller screens */
+  }
 }

@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="{% static 'home/logoWhite.png' %}">
     <title>Tokiyo</title>
 </head>
+
 <body>
     <div class="navbar_for_profile">
         {% include 'navbar/navbarLogout.html' %}
@@ -30,7 +31,7 @@
                 <input class="inputTags" type="tel" value="{{ customer.customerPhone }}" name="customerPhone" id="{{ form.customerPhone.id }}">
                 <div class="password-toggle">
                     <input class="inputTags" type="password" value="{{ customer.customerPassword }}" name="customerPassword" id="{{ form.customerPassword.id }}">
-                    <span class="toggle-password">👁</span>
+                    <span class="toggle-password">👁</span> <!-- Ensure the eye icon is displayed -->
                 </div>
                 <input class="inputTags" type="date" value="{{ customer.customerDateOfBirth|date:'Y-m-d' }}" name="customerDateOfBirth" id="{{ form.customerDateOfBirth.id }}">
                 <select class="inputTags" name="customerGender" id="{{ form.customerGender.id }}">

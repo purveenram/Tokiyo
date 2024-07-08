@@ -12,7 +12,11 @@
 <body>
     <form class="container" method="POST" action="{% url 'addAddress' %}">
         {% csrf_token %}
-        <div class="logo"><a href="{% url 'home' %}"><img class="logoImg" src="{% static 'login/logoWhite.png' %}" alt="Logo"></a></div>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img class="logoImg" src="{% static 'login/logoWhite.png' %}" alt="Logo">
+            </a>
+        </div>
 
         <input type="hidden" name="customerId" id="{{ form.cutomerId.id_for_id }}" value="{{ userId }}">
 
@@ -38,15 +42,15 @@
         <div class="inputTags"><input type="tel" name="customerDeliveryNumber" id="{{ form.customerDeliveryNumber.id_for_id }}"></div>
 
         <div class="btn">
-            <button type="submit" class="Register" name="buttonClickRegister" >Add Address</button>
+            <button type="submit" class="Register" name="buttonClickRegister">Add Address</button>
         </div>
     </form>
-    <div class="homeDiv"></div>
-    {% if forSkip %}
-        <a class="home" href="{% url 'home' %}">Skip</a>
-    {% else %}
-        <a class="home" href="{% url 'login' %}">Skip</a>
-    {% endif %}
+    <div class="homeDiv">
+        {% if forSkip %}
+            <a class="home" href="{% url 'home' %}">Skip</a>
+        {% else %}
+            <a class="home" href="{% url 'login' %}">Skip</a>
+        {% endif %}
     </div>
 </body>
 </html>

@@ -1,110 +1,147 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;700&display=swap');
 
-body{
+body {
     font-family: 'Comic Neue', cursive;
     background-image: url('backgroundImg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
-.container{
-    height: 600px;
-    width: 210px;
-    background-color: rgb(3, 16, 19, .6);
-    margin: auto;
-    margin-top: 20px;
-    padding: 20px 20px 30px 20px;
+.container {
+    width: 90%;
+    max-width: 400px;
+    background-color: rgba(3, 16, 19, .6);
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 20px;
+    box-sizing: border-box;
 }
 
-.logo{
+.logo {
     text-align: center;
 }
-.logoImg{
+
+.logoImg {
     height: 70px;
     width: 70px;
 }
 
-.displayTags{
+.displayTags {
     font-weight: bold;
     margin-top: 10px;
     text-align: center;
-    color:aliceblue;
+    color: aliceblue;
 }
 
-.inputTags{
+.inputTags {
     margin-top: 10px;
     text-align: center;
 }
 
-.btn{
+.btn {
     text-align: center;
     margin-top: 20px;
 }
 
-button{
+button {
     font-family: 'Comic Neue', cursive;
     font-weight: bold;
     background-color: rgb(3, 16, 19, 1);
-    color:aliceblue;
+    color: aliceblue;
     font-size: medium;
     border: 0;
     height: 38px;
     width: 150px;
     border-radius: 19px;
-}
-button:hover {
-    color: red;
-    font-family: 'Comic Neue', cursive;
-    font-weight: bold;
-    font-size: medium;
+    cursor: pointer;
 }
 
-input{
-    padding: 0px;
+button:hover {
+    color: red;
+}
+
+input {
+    padding: 0;
     height: 26px;
-    width: 210px;
+    width: 100%;
+    max-width: 210px;
     border-radius: 13px;
     border: 0;
     text-align: center;
+    box-sizing: border-box;
 }
-input:focus{
-    outline:none;
+
+input:focus {
+    outline: none;
 }
 
 select.genderOption {
     height: 26px;
-    width: 200px;
+    width: 100%;
+    max-width: 210px;
     border-radius: 13px;
     border: 0;
     text-align: center;
+    box-sizing: border-box;
 }
-select.genderOption:focus{
-    outline:none;
+
+select.genderOption:focus {
+    outline: none;
 }
-.homeDiv{
+
+.homeDiv {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.home{
+
+.home {
     font-family: 'Comic Neue', cursive;
     font-weight: bold;
-    background-color: rgb(255, 255, 255,.8);
+    background-color: rgba(255, 255, 255, .8);
     text-decoration: none;
-    color:black;
+    color: black;
     font-size: medium;
-    margin-left:47%;
-    border: 0;
+    display: inline-block;
     padding: 10px 30px;
     border-radius: 20px;
+    cursor: pointer;
 }
+
 .home:hover {
     background-color: black;
     color: red;
-    font-family: 'Comic Neue', cursive;
-    font-weight: bold;
-    font-size: medium;
 }
 
+/* Media Queries for Responsive Design */
+
+/* Small devices (tablets, 600px and up) */
+@media (min-width: 600px) {
+    .container {
+        width: 80%;
+    }
+}
+
+/* Medium devices (large tablets, 768px and up) */
+@media (min-width: 768px) {
+    .container {
+        width: 70%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+    .container {
+        width: 60%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        width: 50%;
+    }
+}
