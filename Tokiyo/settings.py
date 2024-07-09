@@ -80,7 +80,6 @@ DATABASES = {
     }
 }
 
-
 # for credential check
 AUTHENTICATION_BACKENDS = [
     'TokiyoApp.auth_backends.CustomAuthBackend',
