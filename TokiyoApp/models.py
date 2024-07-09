@@ -5,7 +5,7 @@ from django.utils import timezone
 class CustomerDetail(models.Model):
     customerName = models.CharField('Customer Name', max_length=30)
     customerEmail = models.CharField('Email ID', max_length=40)
-    customerPhone = models.IntegerField('Phone No')
+    customerPhone = models.CharField('Phone No', max_length=15)
     customerPassword = models.CharField('Password', max_length=14)
     customerDateOfBirth = models.DateField(null=True)
     customerGender = models.CharField('Gender', max_length=6)
@@ -21,7 +21,7 @@ class CustomerAddressDetail(models.Model):
     customerCity = models.CharField('City', max_length=20)
     customerState = models.CharField('State', max_length=20)
     customerPinCode = models.IntegerField('Pin Code')
-    customerDeliveryNumber = models.IntegerField('Delivery Phone No')
+    customerDeliveryNumber = models.CharField('Delivery Phone No', max_length=15)
     
     def __str__(self):
         return f"Address Id {self.customerId.customerName}"
