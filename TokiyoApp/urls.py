@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-
+    path('run-migrations/', views.run_migrations,name='run_migrations'),
     path('searchInput/',views.searchInput,name='searchInput'),
 
     path('home/',views.home,name='home'),

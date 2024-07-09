@@ -5,10 +5,15 @@ from django.contrib.auth import logout as auth_logout
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.generic import ListView
+from django.core.management import call_command
 import datetime
 import json
 from .models import *
 from .forms import *
+
+def run_migrations(request):
+    call_command('migrate')
+    return HttpResponse("Migrations are run successfully")
 
 def home(request):
     userId = request.session.get("userId")
