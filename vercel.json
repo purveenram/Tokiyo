@@ -4,7 +4,7 @@
     {
       "src": "Tokiyo/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "60mb", "runtime": "python3.11" }
+      "config": { "maxLambdaSize": "80mb", "runtime": "python3.11" }
     }
   ],
   "routes": [
