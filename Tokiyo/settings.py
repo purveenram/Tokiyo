@@ -69,16 +69,20 @@ WSGI_APPLICATION = 'Tokiyo.wsgi.application'
 #     }
 # }
 
+SECRET_KEY = os.environ.get('SECRET_KEY', 'your-default-secret-key')
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'XvSCIaeeXkmjXlqPAnYRRGzRnFOqlpfj',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '52340',
+        'NAME': os.environ.get('DB_NAME', 'railway'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'XvSCIaeeXkmjXlqPAnYRRGzRnFOqlpfj'),
+        'HOST': os.environ.get('DB_HOST', 'roundhouse.proxy.rlwy.net'),
+        'PORT': os.environ.get('DB_PORT', '52340'),
     }
 }
+
 
 # for credential check
 AUTHENTICATION_BACKENDS = [
