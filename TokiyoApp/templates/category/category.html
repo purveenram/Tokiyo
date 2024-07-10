@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="icon" type="image/png" href="{% static 'home/logoWhite.png' %}">
     <title>Tokiyo</title>
 </head>
-
 <body>
     <div class="containerCategory">
         <div class="containerCategoryGradient">
@@ -23,24 +21,18 @@
             <div class="displayCategory">
                 <div class="categoryTitle">{{ category }}</div>
             </div>
+
             <div class="forProduct">
                 <div class="leftSide">
-                    <div class="filterName">
-                        Filters
-                        <div class="filter"></div>
-                    </div>
-                    <div class="filterLine"></div>
-                    <div class="categoryListBorderGroup">
-                        <div class="categoryListBorder"><a class="categoryList" href="{% url 'category' category=0 %}"
-                                value="1">All PRODUCTS</a></div>
-                        <div class="categoryListBorder"><a class="categoryList" href="{% url 'category' category=1 %}"
-                                value="1">KATANA</a></div>
-                        <div class="categoryListBorder"><a class="categoryList" href="{% url 'category' category=2 %}"
-                                value="2">ACTION FIGURES</a></div>
-                        <div class="categoryListBorder"><a class="categoryList" href="{% url 'category' category=3 %}"
-                                value="3">ACCESSORIES</a></div>
-                        <div class="categoryListBorder"><a class="categoryList" href="{% url 'category' category=4 %}"
-                                value="4">POSTERS</a></div>
+                    <button class="ctoggle-button" id="filter" onclick="toggleElementc()"></button>
+
+                    <div class="ctoggle-element" id="toggleElementc">
+                        <a href="javascript:void(0);" class="contentExitc" onclick="closeToggleElementc()">X</a>
+                        <a class="contentTogglec" href="{% url 'category' category=0 %}" value="1">All PRODUCTS</a>
+                        <a class="contentTogglec" href="{% url 'category' category=1 %}" value="1">KATANA</a>
+                        <a class="contentTogglec" href="{% url 'category' category=2 %}" value="2">ACTION FIGURES</a>
+                        <a class="contentTogglec" href="{% url 'category' category=3 %}" value="3">ACCESSORIES</a>
+                        <a class="contentTogglec" href="{% url 'category' category=4 %}" value="4">POSTERS</a>
                     </div>
                 </div>
                 {% if products %}
@@ -79,6 +71,7 @@
     const cards = document.querySelectorAll('.GridGroup');
     const prev = document.querySelector('.prev');
     const next = document.querySelector('.next');
+    const prevNextContainer = document.querySelector('.prevNext');
 
     const cardsPerPage = 9;
     let currentPage = 1;
@@ -94,7 +87,17 @@
                 card.style.display = "none";
             }
         });
+
+        // Show/Hide buttons based on the number of products and current page
+        prev.style.display = (currentPage > 1) ? "inline-block" : "none";
+        next.style.display = (currentPage < Math.ceil(cards.length / cardsPerPage)) ? "inline-block" : "none";
     }
+
+    // Initial check to show/hide buttons
+    if (cards.length <= cardsPerPage) {
+        prevNextContainer.style.display = "none";
+    }
+
     showPage(currentPage);
 
     prev.addEventListener("click", () => {
@@ -112,6 +115,14 @@
         }
     });
 
-</script>
+    function toggleElementc() {
+        var element = document.getElementById("toggleElementc");
+        element.classList.toggle("show");
+    }
 
+    function closeToggleElementc() {
+        var element = document.getElementById("toggleElementc");
+        element.classList.remove("show");
+    }
+</script>
 </html>

@@ -4,203 +4,201 @@
   box-sizing: border-box;
   font-family: 'Rubik', sans-serif;
 }
-body{
+
+a {
+  text-decoration: none;
+}
+
+body {
   margin: 0;
 }
-.containerNav{
+
+.containerNav {
   background-color: rgb(3, 16, 19);
   height: 90px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
 }
-.logo{
-  margin-left: 18%;
+
+.toggle-button {
   background-image: url("logoWhite.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10%;
 }
-#search_form{
-  margin-left: 5%;
+
+.toggle-element {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  transition: left 0.3s ease;
+}
+
+.toggle-element.show {
+  left: 0;
+}
+
+.contentToggle,
+.contentExit {
+  color: black;
+  font-size: large;
+  font-weight: 600;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.contentExit {
+  border-radius: 25px;
+}
+.contentToggle:hover{
+ background-color: rgba(0, 0, 0, 0.4) ;
+ color: aliceblue;
+ border-radius: none;
+}
+.contentExit:hover{
+  background-color: rgba(255, 0, 0) ;
+  color: aliceblue;
+}
+
+.toggle-element.show .contentToggle,
+.toggle-element.show .contentExit {
+  opacity: 1;
+}
+
+.contentExit {
+  font-size: x-large;
+  background-color: white;
+  width: 50px;
+  margin: 5% auto;
+}
+
+#search_form {
   display: flex;
-  width:40% ;
-  align-items: center;
+  justify-content: center;
+  width: 60%;
 }
-.searchdropdown{
-  margin-left: 5%;
-  width: 80%;
+
+.searchdropdown {
+  width: 100%;
 }
-.searchBar{
-  width: 130%;
+
+.searchBar {
+  width: 100%;
 }
-input{
+
+input {
   padding: 10px 45px 10px 30px;
-  width: 445px;
+  width: 100%;
+  max-width: 445px;
   height: 50px;
   border: 0;
   border-radius: 25px;
   font-size: medium;
 }
-input:focus{
-  outline:none;
+
+input:focus {
+  outline: none;
 }
-.suggestionbox{
-  background-color: rgb(240, 248, 255,.5);
+
+.suggestionbox {
+  background-color: rgba(240, 248, 255, 0.5);
   border-radius: 20px;
   z-index: 1;
   position: absolute;
+  width: 100%;
+  max-width: 445px;
 }
-.suggestion{
+
+.suggestion {
   border-radius: 20px;
   text-decoration: none;
   color: rgb(3, 16, 19);
-  width: 445px;
+  width: 100%;
   padding: 2%;
-  padding-left: 5%;
   display: block;
-  background-color: rgb(240, 248, 255,.6);
-  border: 0px 0px 2px 0px solid aliceblue;
+  background-color: rgba(240, 248, 255, 0.6);
+  border-bottom: 2px solid aliceblue;
 }
-.suggestion:hover{
+
+.suggestion:hover {
   color: red;
-  background-color: rgb(3, 16, 19,.7);
+  background-color: rgba(3, 16, 19, 0.7);
 }
-.no-results{
+
+.no-results {
   border-radius: 20px;
   text-decoration: none;
   color: rgb(3, 16, 19);
-  width: 445px;
+  width: 100%;
   padding: 2%;
-  padding-left: 5%;
   display: block;
-  background-color: rgb(240, 248, 255,.6);
-  border: 0px 0px 2px 0px solid aliceblue;
+  background-color: rgba(240, 248, 255, 0.6);
+  border-bottom: 2px solid aliceblue;
 }
-
-.searchImg{
-  background-image: url("search.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 30px;
-  width: 30px;
-  border: 0px;
-  background-color: transparent;
-  transition-delay: .1s;
-  transition-duration: .3s;
-  transition-timing-function: ease;
-}
-.searchImg:hover{
-  transform: translateY(-2px);
-}
-.loginwork{
-  margin-left: 5%;
-  background-image: url("login.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 52px;
-  height: 50px;
-  transition-delay: .1s;
-  transition-duration: .3s;
-  transition-timing-function: ease;
-}
-.loginwork:hover{
-  margin-left: 5%;
-  background-image: url("loginRed.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 52px;
-  height: 50px;
-  transform: scale(1.1);
-}
-#logoutwork{
-  background-image: url("profile.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  transition-delay: .1s;
-  transition-duration: .3s;
-  transition-timing-function: ease;
-}
-#logoutwork:hover{
-  background-image: url("profileRed.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  transform: scale(1.1);
-}
-
-/* -drop down works----------------- */
-.dropdown{
-  margin-left: 5%;
-}
-/* Dropdown button */
-.dropdown .dropbtn {
-  border: none;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #000000;
+#cart{
   color: red;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display:block;
+/* Media Queries */
+@media (max-width: 1200px) {
+  #search_form {
+    width: 60%;
+    margin-right: 10%;
+  }
 }
 
-/*--------------*/
-.cart{
-  margin-left: 3%;
-  background-image: url("cartWhite.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  transition-delay: .1s;
-  transition-duration: .3s;
-  transition-timing-function: ease;
+@media (max-width: 768px) {
+  .containerNav{
+    height: 70px;
+  }
+  #search_form {
+    width: 70%;
+  }
+  .toggle-button {
+    margin-left: 1%;
+  }
+  .suggestionbox{
+    width:60%;
+  }
+  .suggestion{
+    width:100%;
+  }
 }
-.cart:hover{
-  margin-left: 3%;
-  background-image: url("cartRed.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  transform: scale(1.1);
+
+@media (max-width: 480px) {
+  .toggle-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contentToggle,
+  .contentExit {
+    font-size: medium;
+  }
+
+  input {
+    width: calc(100% - 20px);
+  }
+
+  .suggestion,
+  .no-results {
+    width: calc(100% - 20px);
+  }
 }

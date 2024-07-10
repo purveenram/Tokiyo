@@ -5,13 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'navbar/navbarlogout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'navbar/navbar.css' %}">
     <title>Tokiyo</title>
 </head>
-
 <body>
     <div class="containerNav">
-        <a class="logo" href="{% url 'home' %}"></a>
+        <!--  -->
+        <button class="toggle-button"id="logo" onclick="toggleElement()"></button>
+
+        <div class="toggle-element" id="toggleElement">
+            <a href="javascript:void(0);" class="contentExit" onclick="closeToggleElement()">X</a>
+            <a class="contentToggle" href="{% url 'home' %}">Home</a>
+            <a class="contentToggle" href="{% url 'profile' %}">Personal Details</a>
+            <a class="contentToggle" href="{% url 'address' %}">Delivery Address</a>
+            <a class="contentToggle" href="{% url 'viewOrders' %}">Orders</a>
+            <a class="contentToggle" href="{% url 'cart' %}">Cart</a>
+            <a class="contentToggle" id="cart" href="{% url 'logout' %}">Logout</a>
+        </div>
+        <!--  -->
         <form id="search_form" method="post" action="{% url 'searchInput' %}">
             {% csrf_token %}
             <div class="searchdropdown">
@@ -23,17 +34,6 @@
                 </div>
             </div>
         </form>
-
-        <div class="dropdown">
-            <button class="dropbtn" id="logoutwork"></button>
-            <div class="dropdown-content">
-                <a href="{% url 'profile' %}">Personal Details</a>
-                <a href="{% url 'address' %}">Delivery Address</a>
-                <a href="{% url 'viewOrders' %}">Orders</a>
-                <a href="{% url 'logout' %}">Logout</a>
-            </div>
-        </div>
-        <a class="cart" href="{% url 'cart' %}"></a>
     </div>
 </body>
 <script>
@@ -70,6 +70,16 @@
     });
     function navigateToProduct(itemId) {
         window.location.href = '{% url "product" prod=0 %}'.replace('0', itemId);
+    }
+
+    function toggleElement() {
+        var element = document.getElementById("toggleElement");
+        element.classList.toggle("show");
+    }
+
+    function closeToggleElement() {
+        var element = document.getElementById("toggleElement");
+        element.classList.remove("show");
     }
 </script>
 
