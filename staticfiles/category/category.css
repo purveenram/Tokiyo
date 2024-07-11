@@ -163,6 +163,9 @@ a{
     border-radius: 5px;
 }
 .imgDiv{
+    display: flex;
+    margin: auto;
+    margin-top: 3%;
     height: 350px;
     width: 240px;
 }

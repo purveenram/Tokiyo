@@ -33,8 +33,9 @@
                 {% elif order.orderStatusInOrder == 'C' %}
                 <div class="orderstatus1"></div><span class="status"><strike>Cancelled</strike></span>
                 {% endif %}
-                <div class="deliverAddressInOrder">To &nbsp&nbsp&nbsp&nbsp&nbsp : {{ order.deliverAddressInOrder }}&nbsp| +(91) {{ order.deliveryNumberInOrder }}</div>
-                <div class="totalAmountPaidInOrder">Paid &nbsp&nbsp: ₹ {{ order.totalAmountPaidInOrder }}</div>
+                <div class="deliverAddressInOrder">To &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : {{ order.deliverAddressInOrder }}&nbsp</div>
+                <div class="deliveryNumberInOrder">Ph.no. :  +(91) {{ order.deliveryNumberInOrder }}</div>
+                <div class="totalAmountPaidInOrder">Paid &nbsp&nbsp&nbsp : ₹ {{ order.totalAmountPaidInOrder }}</div>
                 <div class="orderPlacedTimeDate">Placed On : {{ order.orderPlacedTimeDate }}
                     <span class="deliveryday">
                         {% if order.orderStatusInOrder == 'N' %}

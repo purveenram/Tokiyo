@@ -23,7 +23,6 @@ body {
   overflow: hidden; /* Ensure content doesn't overflow */
 }
 
-
 .containerAddress {
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap on smaller screens */
@@ -78,6 +77,7 @@ body {
   color: red;
 }
 
+
 /* Media Query for Tablets and Mobile Phones */
 @media (max-width: 768px) {
   .content {
@@ -86,12 +86,13 @@ body {
 
   .containerAddress .leftContentDisplay,
   .containerAddress .rightDetaisDisplay {
-    width: 100%; /* Full width on smaller screens */
+    width: 100px; /* Full width on smaller screens */
     padding: 0; /* Reset padding for full width */
     margin-bottom: 10px; /* Space between sections */
   }
 
   .inputTags {
+    min-width: 100px;
     padding: 8px 10px; /* Adjust padding for smaller screens */
   }
 }

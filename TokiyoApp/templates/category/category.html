@@ -124,5 +124,12 @@
         var element = document.getElementById("toggleElementc");
         element.classList.remove("show");
     }
+    document.addEventListener('click', function(event) {
+        var isClickInside = document.getElementById('filter').contains(event.target) || document.getElementById('toggleElementc').contains(event.target);
+
+        if (!isClickInside) {
+            closeToggleElementc();
+        }
+    });
 </script>
 </html>

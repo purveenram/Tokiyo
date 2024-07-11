@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +22,11 @@
             <div class="productViewSlide">
                 <div class="leftProductViewSlide">
                     {% for productImage in productImages %}
-                    <div class="imgDiv"><img class="images" src="../..{{ productImage.image.url }}"
-                            alt="{{ productImage.product }}"></div>
+                    <div class="imgDiv"><img class="images" src="../..{{ productImage.image.url }}"alt="{{ productImage.product }}"></div>
                     {% endfor %}
                     <div class="prevNext">
                         <button class="prev">◄</button>
-                        <button class="next">▶</button>
+                        <button class="next">►</button>
                     </div>
                 </div>
                 <div class="rightProductViewSlide">
@@ -68,7 +66,7 @@
                 </a>
                 {% endif %}
                 {% endfor %}
-                <button class="suggestBtnRight">▶</button>
+                <button class="suggestBtnRight">►</button>
             </div>
         </div>
         <div class="footerProduct">
@@ -77,6 +75,7 @@
     </div>
 </body>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
     // for images slide
     const cards = document.querySelectorAll('.imgDiv');
     const prev = document.querySelector('.prev');
@@ -119,7 +118,11 @@
     const suggestPrev = document.querySelector('.suggestBtnLeft');
     const suggestNext = document.querySelector('.suggestBtnRight');
 
-    const suggestCardsPerPage = 4;
+    let suggestCardsPerPage = 4;
+    if (window.innerWidth < 950) {
+        suggestCardsPerPage = 2;
+    }
+
     let suggestCurrentPage = 1;
 
     function suggestShowPage(suggestPage) {
@@ -140,7 +143,7 @@
         if (suggestCurrentPage > 1) {
             suggestCurrentPage--;
             suggestShowPage(suggestCurrentPage);
-        } suggestShowPage
+        }
     });
 
     suggestNext.addEventListener("click", () => {
@@ -150,6 +153,18 @@
             suggestShowPage(suggestCurrentPage);
         }
     });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth < 950) {
+            suggestCardsPerPage = 2;
+        } else {
+            suggestCardsPerPage = 4;
+        }
+        suggestCurrentPage = 1;
+        suggestShowPage(suggestCurrentPage);
+    });
+});
+
 </script>
 
 </html>
