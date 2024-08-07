@@ -8,6 +8,9 @@ import datetime
 import json
 from .models import *
 from .forms import *
+from django.views.decorators.cache import cache_control
+
+@cache_control(no_cache=True, must_revalidate=True)
 
 def run_migrations(request):
     call_command('migrate')

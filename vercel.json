@@ -10,11 +10,17 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "dest": "/static/$1",
+      "headers": {
+        "cache-control": "no-cache"
+      }
     },
     {
       "src": "/(.*)",
-      "dest": "Tokiyo/wsgi.py"
+      "dest": "Tokiyo/wsgi.py",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      }
     }
   ]
 }
